@@ -14,13 +14,13 @@ and open the template in the editor.
         include_once './service/EtudiantService.php';
         $es = new EtudiantService();
         //création d'un étudiant
-        $es->create(new Etudiant(0, "RAMI", "Kamal", "Casa", "homme"));
+       // $es->create(new Etudiant(0, "SAFI", "Kamal", "Casa", "homme"));
         //Affichage de la liste des étudiants
         foreach($es->findAll() as $v){
             echo $v->getNom().' <br>';
         }
         //Supprimer l'étudiant dont id = 1
-        $es->delete($es->findById(2));
+//        $es->delete($es->findById(2));
         ?>
     </body>
 </html>

@@ -24,7 +24,14 @@ class EtudiantService implements IDao {
         $req->execute(array($o->getId())) or die('Erreur SQL');
     }
 
-    public function findAll() {
+    public function findAllApi() {
+        $etds = array();
+        $query = "select * from Etudiant";
+        $req = $this->connexion->getConnexion()->prepare($query);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_OBJ) ;
+    }
+     public function findAll() {
         $etds = array();
         $query = "select * from Etudiant";
         $req = $this->connexion->getConnexion()->prepare($query);
@@ -34,7 +41,7 @@ class EtudiantService implements IDao {
         }
         return $etds;
     }
-
+    
     public function findById($id) {
         $query = "select * from Etudiant where id = ?";
         $req = $this->connexion->getConnexion()->prepare($query);
