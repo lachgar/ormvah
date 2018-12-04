@@ -72,8 +72,8 @@
                             <td><?php echo $e->getPrenom() ?></td>
                             <td><?php echo $e->getVille()  ?></td>
                             <td><?php echo $e->getSexe()  ?></td>
-                            <td><a href="">Supprimer</a></td>
-                            <td><a href="">Modifier</a></td>
+                            <td><button onclick="supprimer(<?php echo $e->getId()?>)">Supprimer</button></td>
+                            <td><button>Modifier</button></td>
                         </tr>
                         <?php } ?>
                     </tbody>
