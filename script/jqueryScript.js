@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#loadNom").keypress(function () {
+    $("#loadNom").keyup(function () {
         var nom = $("#loadNom").val();
         $.ajax({
             url: 'controller/loadEtudiant.php',
