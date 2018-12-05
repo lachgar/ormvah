@@ -6,6 +6,8 @@
         <script src="script/etudiant.js" type="text/javascript"></script>
         <script src="script/horloge.js" type="text/javascript"></script>
         <script src="script/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="script/jqueryScript.js" type="text/javascript"></script>
+
         <link href="style/css.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -34,12 +36,12 @@
                         </tr>
                         <tr>
                             <td>Sexe : </td>
-                            <td><input type="radio" id ="h"  name="sexe" value="H" />H
-                                <input type="radio" id="f" name="sexe" value="F" />F</td>
+                            <td><input type="radio" id ="h"  name="sexe" value="homme" />H
+                                <input type="radio" id="f" name="sexe" value="femme"  checked="checked"/>F</td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><button onclick="create()">Valider</button></td>
+                            <td><button id="valider" op="add" onclick="create()">Valider</button></td>
                         </tr>
 
                     </table>
@@ -52,7 +54,9 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nom</th>
+                            <th>Nom
+                                <input type="text" id="loadNom" value="" />
+                            </th>
                             <th>Prenom</th>
                             <th>Ville</th>
                             <th>Sexe</th>
@@ -61,20 +65,20 @@
                         </tr>
                     </thead>
                     <tbody id="contenu">
-                        <?php 
+                        <?php
                         include_once 'service/EtudiantService.php';
                         $es = new EtudiantService();
                         foreach ($es->findAll() as $e) {
-                        ?>
-                        <tr>
-                            <td><?php echo $e->getId()  ?></td>
-                            <td><?php echo $e->getNom()  ?></td>
-                            <td><?php echo $e->getPrenom() ?></td>
-                            <td><?php echo $e->getVille()  ?></td>
-                            <td><?php echo $e->getSexe()  ?></td>
-                            <td><button onclick="supprimer(<?php echo $e->getId()?>)">Supprimer</button></td>
-                            <td><button>Modifier</button></td>
-                        </tr>
+                            ?>
+                            <tr>
+                                <td><?php echo $e->getId() ?></td>
+                                <td><?php echo $e->getNom() ?></td>
+                                <td><?php echo $e->getPrenom() ?></td>
+                                <td><?php echo $e->getVille() ?></td>
+                                <td><?php echo $e->getSexe() ?></td>
+                                <td><button onclick="supprimer(<?php echo $e->getId() ?>)">Supprimer</button></td>
+                                <td><button v="<?php echo $e->getId() ?>" id="update">Modifier</button></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>

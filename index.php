@@ -16,11 +16,15 @@ and open the template in the editor.
         //création d'un étudiant
        // $es->create(new Etudiant(0, "SAFI", "Kamal", "Casa", "homme"));
         //Affichage de la liste des étudiants
-        foreach($es->findAll() as $v){
+        foreach($es->findAll('a') as $v){
             echo $v->getNom().' <br>';
         }
         //Supprimer l'étudiant dont id = 1
-//        $es->delete($es->findById(2));
+//       $es->delete($es->findById(2));
+        
+//        $e = $es->findById(44);
+//        $e->setNom('sss');
+//        $es->update($e);
         ?>
     </body>
 </html>
